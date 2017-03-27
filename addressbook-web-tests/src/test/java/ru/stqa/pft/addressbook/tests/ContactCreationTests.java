@@ -1,4 +1,5 @@
-package ru.stqa.pft.addressbook.tests;
+/*package ru.stqa.pft.addressbook.tests;
+
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -82,4 +83,4 @@ public class ContactCreationTests {
       return false;
     }
   }
-}
+}*/
