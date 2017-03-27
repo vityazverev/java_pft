@@ -37,4 +37,8 @@ public class ContactHelper extends HelperBase{
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());*/
   }
+
+  public void submitContactCreation() {
+    click(By.xpath("//div[@id='content']/form/input[21]"));
+  }
 }
