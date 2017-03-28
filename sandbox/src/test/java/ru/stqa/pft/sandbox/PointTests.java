@@ -1,10 +1,13 @@
+/*
 package ru.stqa.pft.sandbox;
 
 import org.testng.annotations.Test;
 
+*/
 /**
  * Created by Виктор on 17.03.2017.
- */
+ *//*
+
 public class PointTests {
 
   @Test
@@ -17,3 +20,4 @@ public class PointTests {
   }
 
 }
+*/
