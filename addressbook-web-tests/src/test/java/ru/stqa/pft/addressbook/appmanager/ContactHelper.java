@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 
@@ -13,7 +14,7 @@ public class ContactHelper extends HelperBase{
     super(wd);
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
@@ -21,10 +22,13 @@ public class ContactHelper extends HelperBase{
     type(By.name("work"), contactData.getWorkphone());
     type(By.name("email"),contactData.getEmail());
 
-    if (isElementPresent(By.name("new_group"))) {
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-    
+  }
+
 
    /* wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
@@ -44,7 +48,7 @@ public class ContactHelper extends HelperBase{
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());*/
-  }
+
 
 
   public void submitContactCreation() {
