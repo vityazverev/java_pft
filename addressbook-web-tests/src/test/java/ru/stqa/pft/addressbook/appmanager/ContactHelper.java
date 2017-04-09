@@ -91,6 +91,6 @@ public class ContactHelper extends HelperBase{
   }
 
   public boolean isThereAContact() {
-    return isElementPresent(By.name("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+    return isElementPresent(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
   }
 }
