@@ -3,10 +3,14 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ContactHelper extends HelperBase{
@@ -55,8 +59,8 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void selectContact() {
-    click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+  public void selectContact(int index) {
+    wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).get(index).click();
   }
 
   public void deleteSelectedContact() {
@@ -96,5 +100,17 @@ public class ContactHelper extends HelperBase{
 
   public int getContactCount() {
     return wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).size();
+  }
+
+  public List<ContactData> getContactList() {
+  List<ContactData> contacts = new ArrayList<ContactData>();
+  List<WebElement> elements = wd.findElements(By.cssSelector("entry"));
+  for (WebElement element : elements){
+   String lastname = element.findElement(By.xpath(".//td[2]")).getText();
+   String firstname = element.findElement(By.xpath(".//td[3]")).getText();
+   ContactData contact = new ContactData(lastname, firstname, null, null, null, null, null);
+   contacts.add(contact);
+  }
+  return contacts;
   }
 }
