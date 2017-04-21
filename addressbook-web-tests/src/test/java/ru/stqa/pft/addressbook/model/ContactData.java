@@ -38,7 +38,7 @@ public class ContactData {
     return firstname;
   }
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 

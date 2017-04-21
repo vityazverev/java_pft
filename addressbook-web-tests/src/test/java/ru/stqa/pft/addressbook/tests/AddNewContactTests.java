@@ -16,13 +16,13 @@ public class AddNewContactTests extends TestBase {
     app.getNavigationHelper().goToAddNewContactPage();
     ContactData contact = new ContactData("Viktor", "Zverev", "Odessa",
             "0938478961", "0932222222", "vityazverev@gmail.com", "test1");
-    app.getContatHelper().createContact(contact, false);
+    app.getContatHelper().createContact(contact, true);
     List<ContactData> after = app.getContatHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() + 1);
 
 
     int max = 0;
-    for (ContactData q : after) {
+    for (ContactData g : after) {
       if (g.getId() > max) {
         max = g.getId();
       }
