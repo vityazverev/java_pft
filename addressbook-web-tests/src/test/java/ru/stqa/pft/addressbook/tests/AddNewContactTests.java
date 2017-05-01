@@ -12,10 +12,11 @@ public class AddNewContactTests extends TestBase {
 
   @Test
   public void testAddNewContactCreation() {
+    app.getNavigationHelper().goToHomePage();
     List<ContactData> before = app.getContatHelper().getContactList();
     app.getNavigationHelper().goToAddNewContactPage();
-    ContactData contact = new ContactData("Viktor", "Zverev", "Odessa",
-            "0938478961", "0932222222", "vityazverev@gmail.com", "test1");
+    ContactData contact = new ContactData("Viktor", "Zverev", null,
+            null, null, null, "test1");
     app.getContatHelper().createContact(contact, true);
     List<ContactData> after = app.getContatHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() + 1);
