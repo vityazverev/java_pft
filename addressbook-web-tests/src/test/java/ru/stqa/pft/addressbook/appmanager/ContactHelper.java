@@ -66,6 +66,13 @@ public class ContactHelper extends HelperBase{
     goToHomePage();
   }
 
+  public void modifyContact(int index, ContactData contact) {
+  initContactModification(index);
+  fillContactForm(contact, false);
+  submitContactModification();
+  goToHomePage();
+  }
+
   public void goToHomePage() {
     click(By.linkText("home"));
   }
