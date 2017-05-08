@@ -1,10 +1,8 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -42,11 +40,11 @@ public class ContactHelper extends HelperBase{
     wd.findElements(By.xpath(".//td/input")).get(index).click();
   }
 
-  public void deleteSelectedContact() {
+  public void delete() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
-  public void acceptAlertPopUp() {
+  public void acceptAlert() {
     wd.switchTo().alert().accept();
   }
 
@@ -59,18 +57,25 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
-  public void createContact(ContactData contact, boolean b) {
+  public void create(ContactData contact, boolean b) {
     //*goToAddNewContactPage();
     fillContactForm(contact, b);
     submitContactCreation();
     goToHomePage();
   }
 
-  public void modifyContact(int index, ContactData contact) {
+  public void modify(int index, ContactData contact) {
   initContactModification(index);
   fillContactForm(contact, false);
   submitContactModification();
   goToHomePage();
+  }
+
+  public void delete(int index) {
+    selectContact(index);
+    delete();
+    acceptAlert();
+    goToHomePage();
   }
 
   public void goToHomePage() {
@@ -89,7 +94,7 @@ public class ContactHelper extends HelperBase{
     return wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
   List<ContactData> contacts = new ArrayList<ContactData>();
   List<WebElement> elements = wd.findElements(By.xpath("//tr[@name = 'entry']"));
   for (WebElement element : elements){
