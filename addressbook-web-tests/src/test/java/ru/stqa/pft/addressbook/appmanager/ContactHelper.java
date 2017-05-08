@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase{
     wd.findElements(By.xpath(".//td/input")).get(index).click();
   }
 
-  public void delete() {
+  public void deleteContact() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
@@ -58,7 +58,7 @@ public class ContactHelper extends HelperBase{
   }
 
   public void create(ContactData contact, boolean b) {
-    //*goToAddNewContactPage();
+    //*create();
     fillContactForm(contact, b);
     submitContactCreation();
     goToHomePage();
@@ -71,9 +71,9 @@ public class ContactHelper extends HelperBase{
   goToHomePage();
   }
 
-  public void delete(int index) {
+  public void deleteContact(int index) {
     selectContact(index);
-    delete();
+    deleteContact();
     acceptAlert();
     goToHomePage();
   }

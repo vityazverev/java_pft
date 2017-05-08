@@ -12,6 +12,7 @@ public class ContactDeletionTests extends TestBase{
 
   @BeforeMethod
   public void ensurePreconditions(){
+    app.goTo().homePage();
     if (app.contact().list().size() == 0) {
       app.contact().goToAddNewContactPage();
       app.contact().create(new ContactData("Viktor", "Zverev", "Odessa",
@@ -24,7 +25,7 @@ public class ContactDeletionTests extends TestBase{
     app.goTo().homePage();
     List<ContactData> before = app.contact().list();
     int index = before.size() - 1;
-    app.contact().delete(index);
+    app.contact().deleteContact(index);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() - 1);
 
