@@ -82,7 +82,7 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("home"));
   }
 
-  public void goToAddNewContactPage() {
+  public void create() {
     click(By.linkText("add new"));
   }
 
@@ -98,11 +98,10 @@ public class ContactHelper extends HelperBase{
   List<ContactData> contacts = new ArrayList<ContactData>();
   List<WebElement> elements = wd.findElements(By.xpath("//tr[@name = 'entry']"));
   for (WebElement element : elements){
-   String firstname = element.findElement(By.xpath(".//td[2]")).getText();
-   String lastname = element.findElement(By.xpath(".//td[3]")).getText();
+   String firstname = element.findElement(By.xpath(".//td[3]")).getText();
+   String lastname = element.findElement(By.xpath(".//td[2]")).getText();
    int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-   ContactData contact = new ContactData(id, lastname, firstname, null, null,
-           null, null, null);
+   ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
    contacts.add(contact);
   }
   return contacts;
