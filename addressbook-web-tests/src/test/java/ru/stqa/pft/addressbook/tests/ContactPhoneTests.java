@@ -42,7 +42,6 @@ public class ContactPhoneTests extends TestBase {
             .map(ContactPhoneTests::cleaned)
             .collect(Collectors.joining("\n"));
   }
-
   public static String cleaned(String phone){
     return phone.replaceAll("\\s", "").replaceAll("[-()]", ""); // убрать все пробелы, дефисы "-", скобки, плюсы .replaceAll("[+]", "")
   }
