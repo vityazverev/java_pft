@@ -9,10 +9,37 @@ public class ContactData {
   private String mobilephone;
   private String workphone;
   private String email;
+  private String email2;
+  private String email3;
   private String group;
-
-
   private String allPhones;
+
+  public String getEmail() {
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
 
   public String getAllPhones() {
     return allPhones;
@@ -52,10 +79,6 @@ public class ContactData {
     return workphone;
   }
 
-  public String getEmail() {
-    return email;
-  }
-
   public String getGroup() {
     return group;
   }
@@ -63,11 +86,18 @@ public class ContactData {
   @Override
   public String toString() {
     return "ContactData{" +
-            "id='" + id + '\'' +
+            "id=" + id +
             ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
             ", address='" + address + '\'' +
+            ", homephone='" + homephone + '\'' +
             ", mobilephone='" + mobilephone + '\'' +
+            ", workphone='" + workphone + '\'' +
+            ", email='" + email + '\'' +
+            ", email2='" + email2 + '\'' +
+            ", email3='" + email3 + '\'' +
+            ", group='" + group + '\'' +
+            ", allPhones='" + allPhones + '\'' +
             '}';
   }
 
@@ -126,10 +156,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withEmail(String email) {
-    this.email = email;
-    return this;
-  }
+
 
   public ContactData withGroup(String group) {
     this.group = group;
