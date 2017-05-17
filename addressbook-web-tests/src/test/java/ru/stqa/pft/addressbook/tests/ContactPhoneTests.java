@@ -43,6 +43,6 @@ public class ContactPhoneTests extends TestBase {
             .collect(Collectors.joining("\n"));
   }
   public static String cleaned(String phone){
-    return phone.replaceAll("\\s", "").replaceAll("[-()]", ""); // убрать все пробелы, дефисы "-", скобки, плюсы .replaceAll("[+]", "")
+    return phone.replaceAll("Member of: ", "").replaceAll("[-()]", ""); // убрать все пробелы, дефисы "-", скобки, плюсы .replaceAll("[+]", "")
   }
 }
