@@ -17,6 +17,7 @@ public class ContactData {
   private String group;
   private String allPhones;
   private String AllDetails;
+  private String allDetails;
   private File photo;
 
   public File getPhoto() {
@@ -187,11 +188,11 @@ public class ContactData {
     this.workphone = workphone;
     return this;
   }
-
-
+  
 
   public ContactData withGroup(String group) {
     this.group = group;
     return this;
   }
+
 }

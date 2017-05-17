@@ -114,6 +114,10 @@ public class GroupHelper extends HelperBase {
     return new Groups(groupCache);
   }
 
+  public int groupCount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
   /*public List<GroupData> list() {
     List<GroupData> groups = new ArrayList<GroupData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));

@@ -64,6 +64,12 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath(".//td[8]")).click();*/
   }
 
+  public void initContactInfoById(int id) {
+    //    wd.findElement(By.cssSelector("input[id='" + id + "']"));
+    //    wd.findElement(By.xpath(".//td[7]")).click();
+    wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+  }
+
   public void submitContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
@@ -164,9 +170,11 @@ public class ContactHelper extends HelperBase {
     wd.navigate().back();
     if (!(home.equals(""))) {
       home = "H:" + home;
-    }if (!(mobile.equals(""))) {
+    }
+    if (!(mobile.equals(""))) {
       mobile = "M:" + mobile;
-    }if (!(work.equals(""))) {
+    }
+    if (!(work.equals(""))) {
       work = "W:" + work;
     }
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
@@ -185,7 +193,21 @@ public class ContactHelper extends HelperBase {
   public void initContactInfoDetails(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }
+
+  public ContactData infoContactDetails(ContactData contact) {
+    initContactInfoById(contact.getId());
+    String allDetails = wd.findElement(By.xpath("//*[@id='content']")).getText();
+    //    String[] text = wd.findElement(By.xpath("//*[@id='content']")).getText().split("\n");
+    System.out.println(allDetails);
+    wd.navigate().back();
+    return new ContactData()
+            .withId(contact.getId())
+            .withAllDetails(allDetails);
+  }
+
 }
+
+
 /*
   public void deleteContact(int index) {
     selectContact(index);
