@@ -105,7 +105,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public int count() {
-    return wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).size();
+    return wd.findElements(By.name("selected[]")).size();
   }
 
   private Contacts contactCache = null;
