@@ -1,0 +1,28 @@
+21:52:47.754 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testAddress with parameters []
+21:52:47.756 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testAddress
+21:52:49.822 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testEmails with parameters []
+21:52:49.823 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testEmails
+21:52:50.155 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 0'}]
+21:52:50.156 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:52:52.904 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 1'}]
+21:52:52.905 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:52:54.670 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 2'}]
+21:52:54.671 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:52:56.586 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test ContactCreatingTests with parameters [ContactData{id=0, firstname='firstname0', lastname='lastname0', address='address 0', homephone='null', mobilephone='123450', workphone='null', email='email@mail.com', email2='null', email3='null', group='test1', allPhones='null'}]
+21:52:56.586 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+21:52:59.870 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test ContactCreatingTests with parameters [ContactData{id=0, firstname='firstname1', lastname='lastname1', address='address 1', homephone='null', mobilephone='123451', workphone='null', email='email@mail.com', email2='null', email3='null', group='test1', allPhones='null'}]
+21:52:59.870 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+21:53:03.143 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test ContactCreatingTests with parameters [ContactData{id=0, firstname='firstname2', lastname='lastname2', address='address 2', homephone='null', mobilephone='123452', workphone='null', email='email@mail.com', email2='null', email3='null', group='test1', allPhones='null'}]
+21:53:03.143 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+21:53:06.616 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupDeletion with parameters []
+21:53:06.616 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupDeletion
+21:53:08.036 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactDeletion with parameters []
+21:53:08.036 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactDeletion
+21:53:10.260 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupModification with parameters []
+21:53:10.261 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification
+21:53:12.124 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactModification with parameters []
+21:53:12.124 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactModification
+21:53:14.963 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactInfo with parameters []
+21:53:14.964 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactInfo
+21:53:15.531 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactPhones with parameters []
+21:53:15.532 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactPhones

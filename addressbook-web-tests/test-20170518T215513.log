@@ -1,0 +1,10 @@
+21:55:16.362 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 0'}]
+21:55:16.364 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:55:19.367 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 1'}]
+21:55:19.367 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:55:21.220 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupCreating with parameters [GroupData{id='2147483647', name='test 2'}]
+21:55:21.222 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+21:55:23.101 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupModification with parameters []
+21:55:23.101 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification
+21:55:25.034 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupDeletion with parameters []
+21:55:25.034 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupDeletion

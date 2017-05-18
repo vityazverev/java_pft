@@ -1,0 +1,14 @@
+18:44:12.244 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testAddress
+18:44:12.247 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testEmails
+18:44:12.266 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+18:44:12.266 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+18:44:12.267 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupCreating
+18:44:12.412 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+18:44:12.412 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+18:44:12.413 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test ContactCreatingTests
+18:44:12.414 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupDeletion
+18:44:12.415 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactDeletion
+18:44:12.416 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification
+18:44:12.417 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactModification
+18:44:12.418 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactInfo
+18:44:12.418 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactPhones
