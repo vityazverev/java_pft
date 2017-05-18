@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -45,6 +47,8 @@ public class ContactDataCenerator {
       saveAsCsv(contacts, new File(file));
     } else if (format.equals("xml")) {
       saveAsXml(contacts, new File(file));
+    }else  if (format.equals("json")) {
+      saveAsGson(contacts, new File(file));
     } else {
       System.out.println("Unrecognized format " + format);
     }
@@ -59,6 +63,14 @@ public class ContactDataCenerator {
     writer.close();
   }
 
+
+  private void saveAsGson(List<ContactData> contacts, File file) throws IOException {
+    Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+    String json = gson.toJson(contacts);
+    try (Writer writer = new FileWriter(file)){
+      writer.write(json);
+    }
+  }
 
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     Writer writer = new FileWriter(file);
@@ -80,9 +92,9 @@ public class ContactDataCenerator {
       contacts.add(new ContactData()
               .withFirstname(String.format("firstname%s", i))
               .withLastname(String.format("lastname%s", i))
-              .withAddress(String.format("address %s", i))
+              .withAddress(String.format("address%s", i))
               .withEmail(String.format("email@mail.com", i))
-              .withMobilePhone(String.format("12345%s", i))
+              .withMobilePhone(String.format("12345 %s", i))
               .withGroup(String.format("test1", i)));
     }
     return contacts;
