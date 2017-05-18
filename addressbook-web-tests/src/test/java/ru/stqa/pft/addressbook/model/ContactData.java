@@ -2,44 +2,74 @@ package ru.stqa.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
+@Entity
+@Table(name = "addressbook")
 @XStreamAlias("contacts")
 public class ContactData {
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
+  @Column(name = "firstname")
   private String firstname;
+  @Column(name = "lastname")
   private String lastname;
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
+  @Column(name = "home")
+  @Type(type = "text")
   private String homephone;
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobilephone;
+  @Column(name = "work")
+  @Type(type = "text")
   private String workphone;
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
+  @Transient
   private String email2;
+  @Transient
   private String email3;
+  @Transient
   private String allEmails;
+  @Transient
   private String group;
+  @Transient
   private String allPhones;
-  private String AllDetails;
+  @Transient
   private String allDetails;
-  private File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
+    this.photo = photo.getPath();
+    return this;
+  }
+
+  public ContactData withPhoto(String format) {
     this.photo = photo;
     return this;
   }
 
   public String getAllDetails() {
-    return AllDetails;
+    return allDetails;
   }
 
   public ContactData withAllDetails(String allDetails) {
-    AllDetails = allDetails;
+    this.allDetails = allDetails;
     return this;
   }
 
@@ -193,7 +223,7 @@ public class ContactData {
     this.workphone = workphone;
     return this;
   }
-  
+
 
   public ContactData withGroup(String group) {
     this.group = group;

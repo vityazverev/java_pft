@@ -15,7 +15,7 @@ public class ContactPhoneInfoTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions(){
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
       app.contact().create();
       app.contact().create(new ContactData().withFirstname("Viktor").withLastname("Zverev").withAddress("Odessa")
               .withMobilePhone("0938478961").withWorkPhone("0932222222").withEmail("vityazverev@gmail.com").withGroup("test1"), true);
@@ -25,7 +25,7 @@ public class ContactPhoneInfoTests extends TestBase {
   @Test
   public void testContactInfo() {
     app.goTo().homePage();
-    ContactData contact = app.contact().all().iterator().next();
+    ContactData contact = app.db().contacts().iterator().next();
     ContactData infoContactDetails = app.contact().infoFromDetailsForm(contact);
     ContactData infoFromEditFormForDetails = app.contact().infoFromEditFormForDetails(contact);
 

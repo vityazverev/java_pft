@@ -41,7 +41,7 @@ public class ContactCreationTests extends TestBase {
   @BeforeMethod
   public void ensurePrecondition() {
     app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
       app.group().create(new GroupData().withName("test1"));
     }
     app.goTo().homePage();
@@ -49,13 +49,13 @@ public class ContactCreationTests extends TestBase {
 
   @Test(dataProvider = "validContacts")
   public void ContactCreatingTests(ContactData contact) {
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.goTo().create();
     File photo = new File("src/test/resources/l6m1.png");
     app.contact().create(contact, true);
     app.goTo().homePage();
     assertThat(app.contact().count(), equalTo(before.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
