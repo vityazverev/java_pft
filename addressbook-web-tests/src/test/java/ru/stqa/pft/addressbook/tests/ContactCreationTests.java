@@ -8,9 +8,7 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -22,14 +20,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactCreationTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validContacts() {
+  public Iterator<Object[]> validContacts() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[]{new ContactData().withFirstname("name1").withLastname("lastname1").withHomePhone("12345")
-            .withMobilePhone("2345").withWorkPhone("345").withEmail("email@mail.com1").withAddress("address1").withGroup("test1")});
-    list.add(new Object[]{new ContactData().withFirstname("name2").withLastname("lastname2").withHomePhone("12345")
-            .withMobilePhone("2345").withWorkPhone("345").withEmail("email@mail.com2").withAddress("address2").withGroup("test1")});
-    list.add(new Object[]{new ContactData().withFirstname("name3").withLastname("lastname3").withHomePhone("12345")
-            .withMobilePhone("2345").withWorkPhone("345").withEmail("email@mail.com3").withAddress("address3").withGroup("test1")});
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contact.csv")));
+    String line = reader.readLine();
+    while (line != null) {
+      String[] split = line.split(";");
+      list.add(new Object[]{new ContactData()
+              .withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])
+              .withEmail(split[3]).withHomePhone(split[4]).withGroup(split[5])});
+      line = reader.readLine();
+    }
     return list.iterator();
   }
 
@@ -69,7 +70,7 @@ public class ContactCreationTests extends TestBase {
 //            before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 //  }
 
-  @Test
+  @Test (enabled = false)
   public void testBadContactCreation() throws FileNotFoundException {
     app.goTo().homePage();
     Contacts before = app.contact().all();
